@@ -1,4 +1,32 @@
-apply plugin: 'java-library'
+buildscript {
+    
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+
+    def groupProjectID = 'com.victorlh'
+    def artifactProjectID = 'JavaTools'
+    def publishVersionID = '0.1.0-beta'
+
+    userOrg = 'victor-lh'
+    repoName = 'maven'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Utilidades de Java.'
+    website = 'https://github.com/victor-lh/JavaTools'
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
