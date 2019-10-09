@@ -15,7 +15,7 @@ public final class FechaHora extends Fecha {
 	}
 
 	public FechaHora(String fecha) {
-		super(fecha, fecha.length() == 10 ? Fecha.getFormatoFechaDefault() : getFormatoFechaHoraDefault());
+		super(fecha, fecha.length() == 10 ? getFormatoFechaDefault() : getFormatoFechaHoraDefault());
 	}
 
 	public FechaHora(int year, int month, int date, int hour, int minute, int second) {
