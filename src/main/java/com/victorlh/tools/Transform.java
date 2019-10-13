@@ -12,8 +12,9 @@ public class Transform {
 
 	public static String toString(InputStream is) {
 		if (is == null) {
-			return "";
+			return null;
 		}
+
 		String salida = "";
 
 		try (InputStreamReader isr = new InputStreamReader(is)) {
