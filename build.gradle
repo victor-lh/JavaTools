@@ -1,19 +1,26 @@
 buildscript {
     
     repositories {
+        mavenCentral()
         jcenter()
     }
 
     dependencies {
         classpath 'com.novoda:bintray-release:0.9'
     }
+    
 }
 
 apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'com.novoda.bintray-release'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
+
+repositories {
+	mavenCentral()
+}
 
 publish {
 
@@ -51,8 +58,8 @@ sourceSets {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
 }
 
 test {
