@@ -1,61 +1,85 @@
 package com.victorlh.tools.cifrado;
 
 /**
- * @author Victorlh
- * 23 jun. 2018
+ * Codifica un numero en letras del alfabeto, <code>A, B,...,Z,AA,AB,...</code>
+ * Ej: <br>
+ * <code>
+ * 0 -> 'A' <br>
+ * 1 -> 'B' <br>
+ * 25 -> 'Z'
+ * 26 -> 'AA'
+ * </code>
  * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 23 jun. 2018
+ *
  */
 public class AlfabetoExcel {
 
 	public static final String ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	private static final char[] ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+	private static final char[] ALPHABET = ALFABETO.toCharArray();
 
+	/**
+	 * Codifica el numero positivo pasado como parmetro con caracteres del alfabeto
+	 * 
+	 * @param i - Numero que codificar (positivo)
+	 * @return {@link String} con el numero codificado
+	 */
 	public static String toLetraAlfabeto(int i) {
-		if(i < ALPHABET.length) {
+		if (i < 0) {
+			throw new IndexOutOfBoundsException("El parametro tiene que ser positivo");
+		}
+
+		if (i < ALPHABET.length) {
 			return ALPHABET[i] + "";
 		}
-		
+
 		String aux = "";
-		
+
 		i = i - ALPHABET.length;
-		
-		int quot = i/ALPHABET.length;
-		int rem = i%ALPHABET.length;
-		
+
+		int quot = i / ALPHABET.length;
+		int rem = i % ALPHABET.length;
+
 		aux += toLetraAlfabeto(quot);
 		aux += toLetraAlfabeto(rem);
-		
+
 		return aux;
 	}
-	
-	public static String toLetraAlfabeto(int i, boolean startWith1) {
-		if(startWith1) {
-			i--;
-		}
-		return toLetraAlfabeto(i);
-	}
-	
+
+	/**
+	 * Decodifica el texto pasado como parametro en su correspondiente valor en
+	 * entero
+	 * 
+	 * @param alpaheto - {@link String} codificado en formato AlphabetoExcel
+	 * @return {@link Integer} con el numero decodificado
+	 */
 	public static int toInt(String alpaheto) {
 		char c = alpaheto.charAt(0);
 		int position = position(c);
 
-		if(alpaheto.length() == 1) {
+		if (alpaheto.length() == 1) {
 			return position;
 		}
-		
+
 		position++;
-		position *= (int) Math.pow(ALPHABET.length, alpaheto.length()-1);
-		
+		position *= (int) Math.pow(ALPHABET.length, alpaheto.length() - 1);
+
 		return position + toInt(alpaheto.substring(1));
-		
+
 	}
-	
+
 	private static int position(char c) {
 		for (int i = 0; i < ALPHABET.length; i++) {
-			if(ALPHABET[i] == c) {
+			if (ALPHABET[i] == c) {
 				return i;
 			}
 		}
 		return -1;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(position('B'));
 	}
 }
