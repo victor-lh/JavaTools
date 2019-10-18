@@ -9,7 +9,9 @@ import java.security.NoSuchAlgorithmException;
  * 
  * Cifra contenido mediante algoritmos digest
  * 
- * @author VictorLh (https://github.com/victor-lh) created on 12 jun. 2017
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 12 jun. 2017
  *
  */
 public final class Digest {

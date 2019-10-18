@@ -1,7 +1,6 @@
 package com.victorlh.tools.cifrado;
 
 /**
- * 
  * Codifica un numero en letras del alfabeto, <code>A, B,...,Z,AA,AB,...</code>
  * Ej: <br>
  * <code>
@@ -11,8 +10,10 @@ package com.victorlh.tools.cifrado;
  * 26 -> 'AA'
  * </code>
  * 
- * @author Victorlh 23 jun. 2018
- * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 23 jun. 2018
+ *
  */
 public class AlfabetoExcel {
 
