@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
+import com.victorlh.tools.ficheros.ToolsFichero;
+
 public class Tools {
 
 	final static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -27,7 +29,7 @@ public class Tools {
 			plantillaEnPaquete = true;
 		}
 		if (plantillaEnPaquete) {
-			String extension = ToolsFichero.getExtensionFileName(recurso);
+			String extension = ToolsFichero.getExtension(recurso);
 			String fileName = recurso.substring(0, recurso.length() - extension.length() - 1);
 			if (puntos > 1)
 				recurso = "/" + fileName.replace('.', '/') + "." + extension;
