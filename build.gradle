@@ -1,0 +1,67 @@
+buildscript {
+    
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9'
+    }
+    
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'com.novoda.bintray-release'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+	mavenCentral()
+}
+
+publish {
+
+    def groupProjectID = 'com.victorlh'
+    def artifactProjectID = 'JavaTools'
+    def publishVersionID = '1.0.0'
+
+    userOrg = 'victor-lh'
+    repoName = 'maven'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Utilidades de Java.'
+    website = 'https://github.com/victor-lh/JavaTools'
+}
+
+sourceSets {
+    main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+    	java {
+			srcDirs = ['src/test/java']
+		}
+		resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+}
+
+test {
+    useJUnit()
+}
