@@ -12,6 +12,14 @@ import java.io.InputStream;
 
 import com.victorlh.tools.Transform;
 
+/**
+ * Envoltorio de {@link File} con utilidades de acceso al fichero
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 8 nov. 2019
+ *
+ */
 public class FileWrapper {
 
 	private final File file;

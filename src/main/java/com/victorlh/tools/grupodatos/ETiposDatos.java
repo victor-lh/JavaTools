@@ -4,6 +4,13 @@ import com.victorlh.tools.fecha.Fecha;
 import com.victorlh.tools.fecha.FechaHora;
 import com.victorlh.tools.fecha.Hora;
 
+/**
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 8 nov. 2019
+ *
+ */
 public enum ETiposDatos {
 	OBJECT(0, "Object", Object.class),
 	INT(1, "int", Integer.class),
@@ -15,17 +22,17 @@ public enum ETiposDatos {
 	FECHAHORA(7, "FechaHora", FechaHora.class),
 	HORA(8, "Hora", Hora.class),
 	BYTES(9, "Bytes", byte[].class);
-	
-	
+
 	private int claveInterna;
 	private String nombre;
 	private Class<?> clase;
+
 	ETiposDatos(int claveInterna, String nombre, Class<?> clase) {
 		this.claveInterna = claveInterna;
 		this.nombre = nombre;
 		this.clase = clase;
 	}
-	
+
 	public int getClaveInterna() {
 		return claveInterna;
 	}
@@ -47,11 +54,11 @@ public enum ETiposDatos {
 		}
 		return null;
 	}
-	
+
 	public static ETiposDatos getTipoDato(Class<?> tipo) {
 		ETiposDatos[] values = ETiposDatos.values();
 		for (int i = 0; i < values.length; i++) {
-			if(values[i].getClase() == tipo){
+			if (values[i].getClase() == tipo) {
 				return values[i];
 			}
 		}

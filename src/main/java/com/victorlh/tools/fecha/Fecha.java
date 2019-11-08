@@ -7,16 +7,25 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * @author Victorlh 23 ago. 2017
+ * Clase wrapper para fecha
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 23 ago. 2017
+ * @see Calendar
+ *
  */
 public class Fecha implements Cloneable, Comparable<Fecha> {
 
-	public static final double MILISEGUNDOS_DIA = 86400000.0;
+	/**
+	 * Milisegundos que tiene un dia
+	 */
+	public static final double MILISEGUNDOS_DIA = 86400000;
 
-	private static final int[] DIAS_MES = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private static final int[] DIAS_MES = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	/**
-	 * Devuelve la fecha del primer dia de un aÃ±o
+	 * Devuelve la fecha del primer dia de un año
 	 *
 	 * @param anyo
 	 * @return Fecha
@@ -26,7 +35,7 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 	}
 
 	/**
-	 * Devuelve la fecha del ultimo dia de un aÃ±o
+	 * Devuelve la fecha del ultimo dia de un año
 	 *
 	 * @param anyo
 	 * @return Fecha
@@ -37,36 +46,71 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 
 	/**
 	 * @param anyo
-	 * @return <b>true</b> si el aÃ±o es bisiesto, <b>false</b> en caso contrario
+	 * @return <b>true</b> si el año es bisiesto, <b>false</b> en caso contrario
 	 */
 	public static boolean isBisiesto(int anyo) {
 		return Fecha.primerDiaAnyo(anyo).isBisiesto();
 	}
 
+	/**
+	 * Devuelve la fecha actual
+	 * 
+	 * @return Fecha actual
+	 */
 	public static Fecha getFechaActual() {
 		return new Fecha();
 	}
 
+	/**
+	 * Devuelve un objeto fecha equivalente a null (01/01/1900)
+	 * 
+	 * @return Fecha null
+	 */
 	public static Fecha getFechaNull() {
 		return new Fecha(1, 1, 1900);
 	}
 
+	/**
+	 * Devuelve la fecha equivalente a mañada
+	 * 
+	 * @return Fecha de mañana
+	 */
 	public static Fecha getTomorrow() {
 		Fecha fecha = Fecha.getFechaActual();
 		fecha.addDias(1);
 		return fecha;
 	}
 
+	/**
+	 * Devuelve la fecha actual
+	 * 
+	 * @return Fecha actual
+	 */
 	public static Fecha getInstance() {
 		return new Fecha();
 	}
 
 	protected Calendar fecha;
 
+	/**
+	 * Crea un objeto fecha a traves de un String formateado con el formato por
+	 * defecto
+	 * 
+	 * @param fecha
+	 * 
+	 * @see Fecha#getFormatoFechaDefault()
+	 */
 	public Fecha(String fecha) {
 		this(fecha, getFormatoFechaDefault());
 	}
 
+	/**
+	 * Crea un objeto fecha a traves de un String formateado con el formato indicado
+	 * 
+	 * @param fecha
+	 * 
+	 * @see EFormatoFecha
+	 */
 	public Fecha(String fecha, EFormatoFecha formato) {
 		this();
 		SimpleDateFormat sdf = new SimpleDateFormat(formato.pattern);
@@ -79,14 +123,29 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		setDate(parse);
 	}
 
+	/**
+	 * Crea un objeto fecha a traves de un {@link GregorianCalendar}
+	 * 
+	 * @param fecha
+	 */
 	public Fecha(GregorianCalendar fecha) {
 		this.fecha = fecha;
 	}
 
+	/**
+	 * Crea un objeto fecha con la fecha actual
+	 */
 	public Fecha() {
 		this(new GregorianCalendar());
 	}
 
+	/**
+	 * Crea un objeto fecha con el dia mes y año indicado
+	 * 
+	 * @param dia
+	 * @param mes
+	 * @param anio
+	 */
 	public Fecha(int dia, int mes, int anio) {
 		this(new GregorianCalendar(anio, (mes - 1), dia));
 	}
@@ -95,6 +154,11 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		this(new GregorianCalendar(anio, (mes - 1), dia, hora, min, seg));
 	}
 
+	/**
+	 * Crea un objeto fecha con el {@link Date} indicado
+	 * 
+	 * @param date
+	 */
 	public Fecha(Date date) {
 		this();
 		if (date == null) {
@@ -104,23 +168,46 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		}
 	}
 
+	/**
+	 * Clona un objeto fecha
+	 * 
+	 * @param fecha
+	 */
 	public Fecha(Fecha fecha) {
 		this();
 		this.setDate(fecha.getDate());
 	}
 
+	/**
+	 * Añade años a la fecha actual y devueve el resultado
+	 * 
+	 * @param numeroDeAnyos
+	 * @return
+	 */
 	public Fecha addAnyos(int numeroDeAnyos) {
 		Fecha clone = this.clone();
 		clone.fecha.add(Calendar.YEAR, numeroDeAnyos);
 		return clone;
 	}
 
+	/**
+	 * Añade meses a la fecha actual y devuelve el resultado
+	 * 
+	 * @param numeroDeMeses
+	 * @return
+	 */
 	public Fecha addMeses(int numeroDeMeses) {
 		Fecha clone = this.clone();
 		clone.fecha.add(Calendar.MONTH, numeroDeMeses);
 		return clone;
 	}
 
+	/**
+	 * Añade dias a la fecha actual y devuelve el resultado
+	 * 
+	 * @param numeroDeDias
+	 * @return
+	 */
 	public Fecha addDias(int numeroDeDias) {
 		Fecha clone = this.clone();
 		clone.fecha.add(Calendar.DATE, numeroDeDias);
@@ -149,22 +236,22 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 
 	public int getDiaSemana() {
 		switch (fecha.get(Calendar.DAY_OF_WEEK)) {
-			case Calendar.MONDAY:
-				return 0;
-			case Calendar.TUESDAY:
-				return 1;
-			case Calendar.WEDNESDAY:
-				return 2;
-			case Calendar.THURSDAY:
-				return 3;
-			case Calendar.FRIDAY:
-				return 4;
-			case Calendar.SATURDAY:
-				return 5;
-			case Calendar.SUNDAY:
-				return 6;
-			default:
-				return -1;
+		case Calendar.MONDAY:
+			return 0;
+		case Calendar.TUESDAY:
+			return 1;
+		case Calendar.WEDNESDAY:
+			return 2;
+		case Calendar.THURSDAY:
+			return 3;
+		case Calendar.FRIDAY:
+			return 4;
+		case Calendar.SATURDAY:
+			return 5;
+		case Calendar.SUNDAY:
+			return 6;
+		default:
+			return -1;
 		}
 	}
 

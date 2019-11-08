@@ -7,6 +7,14 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
+/**
+ * Utilidades para ficheros {@link File}
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 8 nov. 2019
+ *
+ */
 public class ToolsFichero {
 
 	/**

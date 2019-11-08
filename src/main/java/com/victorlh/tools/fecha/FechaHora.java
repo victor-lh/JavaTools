@@ -4,7 +4,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author Victorlh 23 ago. 2017
+ * 
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 23 ago. 2017
+ * 
  */
 public final class FechaHora extends Fecha {
 
@@ -37,19 +42,19 @@ public final class FechaHora extends Fecha {
 	public static FechaHora getFechaHoraSistema() {
 		return new FechaHora();
 	}
-	
+
 	public int getHora() {
 		return fecha.get(Calendar.HOUR_OF_DAY);
 	}
-	
+
 	public int getMinuto() {
 		return fecha.get(Calendar.MINUTE);
 	}
-	
+
 	public int getSegundo() {
 		return fecha.get(Calendar.SECOND);
 	}
-	
+
 	@Override
 	public FechaHora clone() {
 		return new FechaHora(this.getDate());

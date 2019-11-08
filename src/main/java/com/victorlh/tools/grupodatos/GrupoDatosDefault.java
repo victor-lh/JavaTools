@@ -1,9 +1,11 @@
 package com.victorlh.tools.grupodatos;
 
 /**
- * @author Victorlh
- * 12 abr. 2018
  * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 8 nov. 2019
+ *
  */
 public final class GrupoDatosDefault extends AbstractGrupoDatos {
 

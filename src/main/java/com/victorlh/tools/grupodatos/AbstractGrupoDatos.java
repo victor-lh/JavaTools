@@ -7,7 +7,14 @@ import com.victorlh.tools.fecha.Hora;
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class AbstractGrupoDatos implements IGrupoDatos {
+/**
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 8 nov. 2019
+ *
+ */
+public abstract class AbstractGrupoDatos implements GrupoDatos {
 
 	private HashMap<String, Object> datos;
 	private HashMap<String, ETiposDatos> tipos;
