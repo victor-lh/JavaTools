@@ -1,5 +1,7 @@
 package com.victorlh.tools.fecha;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Formatos de fecha preestablecidos
  * 

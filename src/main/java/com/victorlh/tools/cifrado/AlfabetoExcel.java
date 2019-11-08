@@ -4,10 +4,10 @@ package com.victorlh.tools.cifrado;
  * Codifica un numero en letras del alfabeto, <code>A, B,...,Z,AA,AB,...</code>
  * Ej: <br>
  * <code>
- * 0 -> 'A' <br>
- * 1 -> 'B' <br>
- * 25 -> 'Z'
- * 26 -> 'AA'
+ * 0  -&gt; 'A' <br>
+ * 1  -&gt; 'B' <br>
+ * 25 -&gt; 'Z' <br>
+ * 26 -&gt; 'AA'
  * </code>
  * 
  * @author VictorLh (<a href=
