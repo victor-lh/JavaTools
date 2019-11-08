@@ -26,7 +26,7 @@ publish {
 
     def groupProjectID = 'com.victorlh'
     def artifactProjectID = 'JavaTools'
-    def publishVersionID = '1.0.0-beta'
+    def publishVersionID = '1.0.0'
 
     userOrg = 'victor-lh'
     repoName = 'maven'
