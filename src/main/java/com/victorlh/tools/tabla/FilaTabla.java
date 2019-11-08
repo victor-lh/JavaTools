@@ -6,7 +6,7 @@ package com.victorlh.tools.tabla;
  *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
  *         created on 4 ene. 2018
  *
- * @param <T>
+ * @param <T> - Tipo de objeto que contiene la tabla
  */
 public class FilaTabla<T> {
 

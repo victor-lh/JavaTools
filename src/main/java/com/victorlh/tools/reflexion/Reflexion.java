@@ -20,6 +20,7 @@ public class Reflexion {
 	 * com.victorlh.tools.reflexion.Reflexion
 	 * 
 	 * @param clase - nombre de la clase totalmente cualificado
+	 * @param       <T> - Tipo de la clase
 	 * @return {@link Class} correspondiente al nombre indicado
 	 */
 	@SuppressWarnings("unchecked")
@@ -51,6 +52,7 @@ public class Reflexion {
 	 * Crea una nueva instancia de la clase indicada
 	 * 
 	 * @param clase - {@link Class} de la que crear nueva instancia
+	 * @param       <T> - Tipo de la clase
 	 * @return nueva instancia de la clase
 	 */
 	public static <T> T newInstance(Class<T> clase) {
@@ -63,7 +65,9 @@ public class Reflexion {
 	 * Crea una nueva instancia de la clase indicada con el constructor
 	 * correspondiente a los parametros indicados
 	 * 
-	 * @param clase - nombre de la clase totalmente cualificado
+	 * @param clase     - nombre de la clase totalmente cualificado
+	 * @param classArgs - Clases de los parametros del constructor
+	 * @param args      - Valores de los parametros del constructor
 	 * @return nueva instancia de la clase
 	 */
 	public static Object newInstance(String clase, Class<?>[] classArgs, Object[] args) {
@@ -75,7 +79,10 @@ public class Reflexion {
 	 * Crea una nueva instancia de la clase indicada con el constructor
 	 * correspondiente a los parametros indicados
 	 * 
-	 * @param clase - {@link Class} de la que crear nueva instancia
+	 * @param clase     - {@link Class} de la que crear nueva instancia
+	 * @param classArgs - Clases de los parametros del constructor
+	 * @param args      - Valores de los parametros del constructor
+	 * @param           <T> - Tipo de la clase
 	 * @return nueva instancia de la clase
 	 */
 	public static <T> T newInstance(Class<T> clase, Class<?>[] classArgs, Object[] args) {

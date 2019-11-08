@@ -24,30 +24,14 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 
 	private static final int[] DIAS_MES = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-	/**
-	 * Devuelve la fecha del primer dia de un año
-	 *
-	 * @param anyo
-	 * @return Fecha
-	 */
 	public static Fecha primerDiaAnyo(int anyo) {
 		return new Fecha(1, 1, anyo);
 	}
 
-	/**
-	 * Devuelve la fecha del ultimo dia de un año
-	 *
-	 * @param anyo
-	 * @return Fecha
-	 */
 	public static Fecha ultimoDiaAnyo(int anyo) {
 		return new Fecha(31, 12, anyo);
 	}
 
-	/**
-	 * @param anyo
-	 * @return <b>true</b> si el año es bisiesto, <b>false</b> en caso contrario
-	 */
 	public static boolean isBisiesto(int anyo) {
 		return Fecha.primerDiaAnyo(anyo).isBisiesto();
 	}
@@ -92,25 +76,10 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 
 	protected Calendar fecha;
 
-	/**
-	 * Crea un objeto fecha a traves de un String formateado con el formato por
-	 * defecto
-	 * 
-	 * @param fecha
-	 * 
-	 * @see Fecha#getFormatoFechaDefault()
-	 */
 	public Fecha(String fecha) {
 		this(fecha, getFormatoFechaDefault());
 	}
 
-	/**
-	 * Crea un objeto fecha a traves de un String formateado con el formato indicado
-	 * 
-	 * @param fecha
-	 * 
-	 * @see EFormatoFecha
-	 */
 	public Fecha(String fecha, EFormatoFecha formato) {
 		this();
 		SimpleDateFormat sdf = new SimpleDateFormat(formato.pattern);
@@ -123,11 +92,6 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		setDate(parse);
 	}
 
-	/**
-	 * Crea un objeto fecha a traves de un {@link GregorianCalendar}
-	 * 
-	 * @param fecha
-	 */
 	public Fecha(GregorianCalendar fecha) {
 		this.fecha = fecha;
 	}
@@ -139,13 +103,6 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		this(new GregorianCalendar());
 	}
 
-	/**
-	 * Crea un objeto fecha con el dia mes y año indicado
-	 * 
-	 * @param dia
-	 * @param mes
-	 * @param anio
-	 */
 	public Fecha(int dia, int mes, int anio) {
 		this(new GregorianCalendar(anio, (mes - 1), dia));
 	}
@@ -154,11 +111,6 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		this(new GregorianCalendar(anio, (mes - 1), dia, hora, min, seg));
 	}
 
-	/**
-	 * Crea un objeto fecha con el {@link Date} indicado
-	 * 
-	 * @param date
-	 */
 	public Fecha(Date date) {
 		this();
 		if (date == null) {
@@ -168,46 +120,23 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		}
 	}
 
-	/**
-	 * Clona un objeto fecha
-	 * 
-	 * @param fecha
-	 */
 	public Fecha(Fecha fecha) {
 		this();
 		this.setDate(fecha.getDate());
 	}
 
-	/**
-	 * Añade años a la fecha actual y devueve el resultado
-	 * 
-	 * @param numeroDeAnyos
-	 * @return
-	 */
 	public Fecha addAnyos(int numeroDeAnyos) {
 		Fecha clone = this.clone();
 		clone.fecha.add(Calendar.YEAR, numeroDeAnyos);
 		return clone;
 	}
 
-	/**
-	 * Añade meses a la fecha actual y devuelve el resultado
-	 * 
-	 * @param numeroDeMeses
-	 * @return
-	 */
 	public Fecha addMeses(int numeroDeMeses) {
 		Fecha clone = this.clone();
 		clone.fecha.add(Calendar.MONTH, numeroDeMeses);
 		return clone;
 	}
 
-	/**
-	 * Añade dias a la fecha actual y devuelve el resultado
-	 * 
-	 * @param numeroDeDias
-	 * @return
-	 */
 	public Fecha addDias(int numeroDeDias) {
 		Fecha clone = this.clone();
 		clone.fecha.add(Calendar.DATE, numeroDeDias);
@@ -290,11 +219,6 @@ public class Fecha implements Cloneable, Comparable<Fecha> {
 		return fecha.get(Calendar.MONTH) + 1;
 	}
 
-	/**
-	 * Devuelve el numero de dias que tiene el mes actual
-	 *
-	 * @return
-	 */
 	public int getDiasMes() {
 		int mes = this.getMes() - 1;
 		int ann = this.getAnyo();

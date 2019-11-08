@@ -57,9 +57,9 @@ public class Tools {
 	/**
 	 * Devuelve el indice del objeto en el array o -1 si no existe
 	 *
-	 * @param valor
-	 * @param array
-	 * @return
+	 * @param valor - Objeto que buscar
+	 * @param array - Vector en el que buscar
+	 * @return Posicion del objeto en el array o -1 si no se ha encontrado
 	 */
 	public static int indexInArray(Object valor, Object[] array) {
 		for (int i = 0; i < array.length; i++) {

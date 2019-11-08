@@ -138,7 +138,7 @@ public class FileWrapper {
 	}
 
 	/**
-	 * @param filter
+	 * @param filter - Filtro de la lista resultante
 	 * @return Lista de {@link File} hijos
 	 * @see File#listFiles(FilenameFilter)
 	 */
