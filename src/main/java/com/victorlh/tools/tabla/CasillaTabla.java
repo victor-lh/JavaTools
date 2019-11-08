@@ -1,8 +1,12 @@
 package com.victorlh.tools.tabla;
 
 /**
- * @author Victorlh
- * 4 ene. 2018
+ * 
+ * 
+ * @author VictorLh (<a href="https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ * created on 4 ene. 2018
+ *
+ * @param <T>
  */
 public class CasillaTabla<T> {
 

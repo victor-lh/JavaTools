@@ -8,6 +8,13 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
+/**
+ * 
+ * @author VictorLh (<a href=
+ *         "https://github.com/victor-lh">https://github.com/victor-lh</a>)
+ *         created on 8 nov. 2019
+ *
+ */
 public class Transform {
 
 	public static String toString(InputStream is) {
@@ -31,7 +38,7 @@ public class Transform {
 	}
 
 	public static String toString(boolean bool) {
-		return toString(bool, true);
+		return toString(bool, false);
 	}
 
 	public static String toString(boolean bool, boolean getSN) {
