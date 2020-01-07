@@ -53,7 +53,11 @@ public class Version {
 				}
 
 			}
-			version[i] = Transform.toInt(cadena);
+			try {
+				version[i] = "X".equalsIgnoreCase(cadena) ? -1 : Transform.toInt(cadena);
+			} catch (NumberFormatException e) {
+				version[i] = 0;
+			}
 		}
 
 		return new Version(version[0], version[1], version[2], sufijo);
@@ -105,6 +109,16 @@ public class Version {
 
 		if (obj instanceof Version) {
 			Version aux = (Version) obj;
+			if (mayor == -1 || aux.getMayor() == -1) {
+				return true;
+			}
+			if (menor == -1 || aux.getMenor() == -1) {
+				return true;
+			}
+			if (micro == -1 || aux.getMicro() == -1) {
+				return true;
+			}
+
 			return mayor == aux.getMayor() && menor == aux.getMenor() && micro == aux.getMicro();
 		}
 
@@ -113,7 +127,7 @@ public class Version {
 
 	public String getVersionString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(mayor).append(".").append(menor).append(".").append(micro);
+		sb.append(mayor == -1 ? "X" : mayor).append(".").append(menor == -1 ? "X" : menor).append(".").append(micro == -1 ? "X" : micro);
 		if (ToolsValidacion.isCadenaNoVacia(sufijo)) {
 			sb.append("-").append(sufijo);
 		}
